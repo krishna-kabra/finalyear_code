@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<header class="text-gray-400 bg-gray-900 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+      <a class="mr-5 hover:text-white" href="/dashboard">Dashboard</a>
+      <a class="mr-5 hover:text-white" href="/addcustomer">Add Customer</a>
+      <a class="mr-5 hover:text-white" href="/product">Product</a>
+      <a class="mr-5 hover:text-white" href="/bitwork">BitWork</a>
+      <a class="mr-5 hover:text-white" href="/dailyreport">Daily Reports</a>
+    </nav>
+  </div>
+</header>
+
+
+<section class="text-gray-400 bg-gray-900 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-20">
+        <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-white">Bit Work</h1>
+      </div>
+      <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+        <table class="table-auto w-full text-left whitespace-no-wrap">
+          <thead>
+            <tr>
+              <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800 rounded-tl rounded-bl">Sno</th>
+              <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800">Name</th>
+              <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800">Type</th>
+              <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800">Price</th>
+              <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800">Weight</th>
+              <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800">Count</th>
+              <th class="px-4 py-3 title-font tracking-wider font-medium text-white text-sm bg-gray-800">Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for data in data %}
+            <tr>
+              <td class="px-4 py-3">{{data.sno}}</td>
+              <td class="px-4 py-3">{{data.name}}</td>
+              <td class="px-4 py-3">{{data.ptype}}</td>
+              <td class="px-4 py-3">{{data.rate}}</td>
+              <td class="px-4 py-3">{{data.weight}}</td>
+              <td class="px-4 py-3">{{data.count}}</td>
+              <td class="px-4 py-3">
+                <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"><a href="/weightprice/{{data.sno}}">Edit</a></button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <!-- <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
+        <a class="text-indigo-400 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div> -->
+    </div>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tax Invoice</title>
+  <style>
+  body {
+        height: 842px;
+        width: 595px;
+        /* to centre page on screen*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+  .container {
+    font-family: 'Playfair Display', serif;
+    border: 5px solid black;
+  }
+
+  /* .logo {
+    
+    width: 100%;
+  } */
+  img {
+    display: flex;
+    width: 50mm;
+    height: 50mm;
+    margin:10px;
+    padding:10px;
+  }
+
+  .logo h2{
+    text-align: center;
+  }
+
+  .names{
+    display: block;
+    text-align: center;
+    justify-content: center;
+    border: 3px solid black;
+    padding:10px;
+  }
+
+.tbl{
+    border: 5px double black;
+    border-radius: 10px;
+    margin: 40px;
+    padding: 15px;
+}
+.row{
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+}
+.col-8 {
+    display: flex;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+}
+.col-4{
+    display: flex;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+.table th,
+.table td {
+    border: 1px solid black;
+    padding: 2mm;
+}
+
+.table td{
+    height: 50px;
+}
+
+.declaration {
+    margin-top: 25mm;
+    font-size: 15px;
+}
+
+.signature {
+    margin-top: 5mm;
+    text-align: right;
+    font-size: 15px;
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <div class="names">
+        <div class="image">
+        <img src="https://res.cloudinary.com/dfrtu63wr/image/upload/v1684436213/logo_ozc3bf.jpg" alt="fdsfs">
+      </div>
+        <h2>KRISHI UTHPANA BAJAR SAMITI PARTUR DIST JALNA</h2>
+        <h3>KABRA TRADERS LIMITED</h3>
+        <div class="address">
+          Kabra Traders, New Mondha, North Face,<br />
+          Partur - 431501, India
+        </div>
+        <div class="gstin">GSTIN NO : sabk9879dsaa8s165asd</div>
+      </div>
+    </div>
+    <div class="tbl">
+      <div class="invoice">
+        <div class="row">
+          <div class="col-4">INVOICE No :</div>
+          <div class="col-8">{{data.sno}}</div>
+        </div>
+        <div class="row">
+          <div class="col-4">DATE :</div>
+          <div class="col-8">{{data.date}}</div>
+        </div>
+        <div class="row">
+          <div class="col-4">CUSTOMER NAME :</div>
+          <div class="col-8">{{data.name}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="item-description">
+      <table class="table">
+        <tr>
+          <th width="10%">SR No.</th>
+          <th width="30%">GOODS DESCRIPTION</th>
+          <th width="20%">RATE</th>
+          <th width="10%">QTY</th>
+          <th width="30%">TOTAL</th>
+        </tr>
+        <tr>
+          <td>{{data.sno}}</td>
+          <td>{{data.ptype}}</td>
+          <td>{{data.rate}}</td>
+          <td>{{data.weight}}</td>
+          <td>{{data.total}}</td>
+        </tr>
+      </table>
+      <br>
+      <table class="table">
+        <tr>
+          <th width="60%">Final Amount to pay</th>
+          <th width="40%">{{finalamt}}</th>
+        </tr>
+      </table>
+      <div class="declaration">
+        <p>We declare that above mentioned information is true.</p>
+      </div>
+    </div>
+    <div class="signature">
+      <p>Authorised Signatory</p>
+    </div>
+  </div>
+</body>
+
+</html>

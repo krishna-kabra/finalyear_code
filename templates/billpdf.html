@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tax Invoice</title>
+  <style>
+     @page {
+      size: A4;
+      margin: 0; /* Remove default page margin */
+    }
+    body {
+      height: 1000px;
+      width: 900px;
+      /* to center page on screen*/
+      margin-left: auto;
+      margin-right: auto;
+      padding: 5px;
+      border: 2px solid black;
+    }
+
+    .container {
+      font-family: 'Playfair Display', serif;
+      border: 3px solid black;
+      display: flex; /* Add this to enable flexbox layout */
+      align-items: center; /* Vertically center the contents */
+      justify-content: space-between; /* Spread the contents horizontally */
+      padding: 10px; /* Add some padding */
+    }
+
+    .logo {
+      width: 50%; /* Reduce width to 50% */
+    }
+
+    img {
+      display: block; /* Remove inline-block and float */
+      width: 50mm;
+      height: 50mm;
+    }
+
+    .names {
+      /* width: 33.33%; Reduce width to 50% */
+      text-align: center;
+      padding: 10px;
+    }
+    .tbl{
+      border: 5px double black;
+      border-radius: 10px;
+      margin: 40px;
+      padding: 15px;
+    }
+    .row{
+        display: flex;
+        padding: 5px;
+        margin: 5px;
+    }
+    .col-8 {
+        display: flex;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 5px;
+    }
+    .col-4{
+        display: flex;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 5px;
+    }
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 15px;
+    }
+    .table th,
+    .table td {
+        border: 1px solid black;
+        padding: 2mm;
+    }
+
+    .table td{
+        height: 50px;
+    }
+
+    .declaration {
+        margin-top: 25mm;
+        font-size: 15px;
+    }
+
+    .signature {
+        margin-top: 5mm;
+        text-align: right;
+        font-size: 15px;
+    }
+  </style>
+
+    <script>
+      function printPage() {
+          window.print();
+      }
+    </script>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://res.cloudinary.com/dfrtu63wr/image/upload/v1684436213/logo_ozc3bf.jpg" alt="fdsfs">
+    </div>
+    <div class="names">
+      <h2>KRISHI UTHPANA BAJAR SAMITI PARTUR DIST JALNA</h2>
+      <h3>KABRA TRADERS LIMITED</h3>
+      <div class="address">
+        Kabra Traders, New Mondha, North Face,<br />
+        Partur - 431501, India
+      </div>
+      <p>GSTIN NO : sabk9879dsaa8s165asd</p>
+    </div>
+  </div>
+  <div class="tbl">
+    <div class="invoice">
+      <div class="row">
+        <div class="col-4">INVOICE No :{{data.sno}}</div>
+      </div>
+      <div class="row">
+        <div class="col-4">DATE :{{data.date}}</div>
+      </div>
+      <div class="row">
+        <div class="col-4">CUSTOMER NAME :{{data.name}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="item-description">
+    <table class="table">
+      <tr>
+        <th width="10%">SR No.</th>
+        <th width="30%">GOODS DESCRIPTION</th>
+        <th width="20%">RATE</th>
+        <th width="10%">QTY</th>
+        <th width="30%">TOTAL</th>
+      </tr>
+      <tr>
+        <td>{{data.sno}}</td>
+        <td>{{data.ptype}}</td>
+        <td>{{data.rate}}</td>
+        <td>{{data.weight}}</td>
+        <td>{{data.total}}</td>
+      </tr>
+    </table>
+    <br>
+    <table class="table">
+      <tr>
+        <th width="60%">Final Amount to pay</th>
+        <th width="40%">{{finalamt}}</th>
+      </tr>
+    </table>
+    <div class="declaration">
+      <p>We declare that above mentioned information is true.</p>
+    </div>
+  </div>
+  <div class="signature">
+    <p>Authorised Signatory</p>
+  </div>
+  <button onclick="printPage()">Print</button>
+  <button id="translateButton">Translate to Marathi</button>
+</body>
+
+</html>
